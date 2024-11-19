@@ -1,20 +1,22 @@
-<script lang="ts">
-import { defineComponent } from "vue"
+<script setup lang="ts">
+import { computed } from "vue"
 import type { PropType } from 'vue'
 import type { Dish } from '../types'
 
-export default defineComponent({
-  props: {
+  const props = defineProps({
     dish: {
       type: Object as PropType<Dish>,
       required: true,
     },
-  },
-  emits: ['delete-dish'],
-  computed: {
-    statusColor() {
-      switch (this.dish.status) {
-        case 'Want to Try':
+  })
+
+  const emits = defineEmits<{
+    (e: 'delete-dish', dish: Dish): void
+  }>()
+
+  const statusColor = computed(() => {
+    switch (props.dish.status) {
+      case 'Want to Try':
           return 'is-warning'
         case 'Recommended':
           return 'is-success'
@@ -23,14 +25,11 @@ export default defineComponent({
         default:
           return ''
       }
-    },
-  },
-  methods: {
-    deleteDish() {
-      this.$emit('delete-dish', this.dish)
-    },
-  },
-})
+    })
+  
+  const deleteDish = () => {
+    emits('delete-dish', props.dish)
+  }
 </script>
 
 <template>

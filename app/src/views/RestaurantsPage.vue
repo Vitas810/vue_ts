@@ -2,7 +2,7 @@
 import NewRestaurantForm from '../components/NewRestaurantForm.vue'
 import RestaurantCard from '../components/RestaurantCard.vue'
 import SideMenu from '../components/SideMenu.vue'
-import { computed, defineComponent, onMounted, ref } from "vue"
+import { computed, onMounted, ref } from "vue"
 import type { Restaurant } from '../types'
 import { useRoute } from 'vue-router'
 
