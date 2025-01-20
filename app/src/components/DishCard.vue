@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed } from "vue"
-import type { PropType } from 'vue'
-import type { Dish } from '../types'
+  import { computed } from "vue"
+  import type { PropType } from 'vue'
+  import type { Dish } from '../types'
 
   const props = defineProps({
     dish: {
@@ -26,7 +26,7 @@ import type { Dish } from '../types'
           return ''
       }
     })
-  
+
   const deleteDish = () => {
     emits('delete-dish', props.dish)
   }
