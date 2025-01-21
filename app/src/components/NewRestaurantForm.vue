@@ -27,7 +27,7 @@
     emits('cancel-new-restaurant')
   }
 
-  const updateName = (event: InputEvent) => {
+  const updateName = (event: KeyboardEvent) => {
     newRestaurant.value.name = (event.target as HTMLInputElement).value
   }
 
